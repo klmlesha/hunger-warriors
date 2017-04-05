@@ -1,15 +1,19 @@
 
-
 body {
-    background-color: white;
+	background-image: url("https://s-media-cache-ak0.pinimg.com/236x/1c/98/b2/1c98b29abb612e677f3ffb7a8de976bf.jpg");
+	background-repeat:no-repeat;
+	 background-size: 100% 100%;
+	 height:100%;
 }
+
 .restaurantSurvey{
 	font-family: "Times New Roman" ;
     color:grey;
     font-size: 30px;
+    
 
 
 }
-.feedhomless{
-	width:60%;
-}
+
+	
+	
