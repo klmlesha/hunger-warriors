@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hunger Warriors</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</head>
+<body>
+	<h1> Resturant Info</h1>
+        
+<script id="jsbin-javascript">
+var form = new FormData();
+form.append("", "");
+$("button").click(function(){
+  
+ });
+console.log("hi");
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.airtable.com/v0/appoQmCfXoJ4KFKUp/restaurant%20submission?maxRecords=3&view=Grid%20view",
+  "method": "GET",
+  "headers": {
+    "authorization": "Bearer keyuzt2LZF7exeI7c"
+  }, 
+  "processData": false,
+  "contentType": false,
+  "mimeType": "multipart/form-data",
+    
+};
+$.ajax(settings).done(function (response) {
+    response = JSON.parse(response);
+  console.log(response.records[0].fields.Name);
+  
+});
+</script>
