@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>Hunger warriors</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -15,13 +16,13 @@
     <![endif]-->
   <link rel="stylesheet" type="text/css" href="hungerwarriors.css">
 </head>
-<body >
+<body>
 
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
 			Resturant Name:<br>
-			<input type="text" name="name">
+			<input id="name" type="text" name="name">
 			<br>
 			City:<br>
 			<input type="text" name="city">
@@ -40,5 +41,37 @@
 	  
 	</div>
 </div>
+<script> 
+var name;
+var data = { 
+  "fields" : {
+      "Name" : name,
+      "address" : "",
+  }
+}
+$(".btn btn-success").click(function{
+	name = $('#name').val();
+});
+
+var dataString = JSON.stringify(data);
+
+console.log(dataString);
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.airtable.com/v0/appoQmCfXoJ4KFKUp/restaurant%20submission?maxRecords=3&view=Grid%20view",
+  "method": "POST",
+  "headers": {
+    "Authorization": "Bearer keyuzt2LZF7exeI7c",
+    "Content-type": "application/json"
+  },
+  "mimeType": "multipart/form-data",
+  "data" : dataString
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});</script>
 </body>
 </html>
