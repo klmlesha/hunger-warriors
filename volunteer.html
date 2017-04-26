@@ -5,7 +5,9 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 </head>
 <body>
+  <div>
 	<h1> Resturant Info</h1>
+</div>
         
 <script id="jsbin-javascript">
 var form = new FormData();
@@ -29,7 +31,11 @@ var settings = {
 };
 $.ajax(settings).done(function (response) {
     response = JSON.parse(response);
-  console.log(response.records[0].fields.Name);
+  for(var i = 0; i < response.records.length; i++){
+    $("body").append(response.records[i].fields.Name+"<br>");
+      $("body").append(response.records[i].fields.address+"<br>");
+  }
   
 });
+
 </script>
