@@ -25,53 +25,66 @@
 			<input id="name" type="text" name="name">
 			<br>
 			City:<br>
-			<input type="text" name="city">
+			<input id="city" type="text" name="city">
 			<br>
 			Zipcode:<br>
-			<input type="text" name="code">
+			<input id="zipcode" type="text" name="code">
 			<br>
 			Address:<br>
-			<input type="text" name="add">
+			<input id="address" type="text" name="add">
 			<br>
 			Email Address:<br>
-	        <input type="text" name="add">
+	        <input id="emailaddress" type="text" name="add">
 	        <br>
-	      <button class="btn btn-success" type="submit" value="Submit">Submit</button>
+	      <button class="btn btn-success" value="Submit">Submit</button>
 	  </div>
 	  
 	</div>
 </div>
 <script> 
+var address;
 var name;
-var data = { 
+var zip;
+var email;
+var city;
+
+$('.btn.btn-success').click(function() {
+  name = $('#name').val();
+  address = $('#add').val();
+  zip = $('#zipcode').val();
+  email = $('#emailaddress').val();
+  city = $('#city').val();
+  var data = { 
   "fields" : {
-      "Name" : name,
-      "address" : "",
+    "name" : name,
+    "address" : address,
+    "zipcode" : zip,
+    "city" : city,
+    "emailaddress" : email,
   }
 }
-$(".btn btn-success").click(function{
-	name = $('#name').val();
+  
+  var dataString = JSON.stringify(data);
+
+  console.log(dataString);
+
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://api.airtable.com/v0/appoQmCfXoJ4KFKUp/restaurant%20submission?maxRecords=3&view=Grid%20view",
+    "method": "POST",
+    "headers": {
+      "Authorization": "Bearer keyuzt2LZF7exeI7c",
+      "Content-type": "application/json"
+    },
+    "mimeType": "multipart/form-data",
+    "data" : dataString
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
 });
-
-var dataString = JSON.stringify(data);
-
-console.log(dataString);
-
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://api.airtable.com/v0/appoQmCfXoJ4KFKUp/restaurant%20submission?maxRecords=3&view=Grid%20view",
-  "method": "POST",
-  "headers": {
-    "Authorization": "Bearer keyuzt2LZF7exeI7c",
-    "Content-type": "application/json"
-  },
-  "mimeType": "multipart/form-data",
-  "data" : dataString
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});</script>
+</script>
 </body>
 </html>
