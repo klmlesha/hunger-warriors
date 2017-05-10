@@ -1,8 +1,8 @@
 
-#form{
+.form{
 	background-image: url("https://s-media-cache-ak0.pinimg.com/236x/1c/98/b2/1c98b29abb612e677f3ffb7a8de976bf.jpg");
 	background-repeat:no-repeat;
-	 background-size: 100% 100%;*/
+	 background-size: 100%;
 	 height:100%;
 }
 
@@ -18,6 +18,14 @@
 	background:url("http://static.politico.com/46/8a/c812ae164f5eb74cf5b30a2c6a70/newcardmichellegarden-lede-illobygluekit.jpg");
 height: 800px;  
 }
+
+#map{
+
+	margin:auto;
+	text-align: center;
+}
+ 
+
 
 	
 	

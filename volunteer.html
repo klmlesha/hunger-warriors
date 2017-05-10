@@ -15,7 +15,7 @@
       <li class="active"><a href="index.html">Home</a></li>
       <li><a href="volunteer.html">Volunteer</a></li>
       <li><a href="form.html">Resturants</a></li>
-      <li><a href="#become">Become A Volunteer</a></li>
+      <li><a href="shelters.html">Shelters</a></li>
     </ul>
   </div>
 </nav>
@@ -33,7 +33,7 @@ console.log("hi");
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://api.airtable.com/v0/appoQmCfXoJ4KFKUp/restaurant%20submission?maxRecords=3&view=Grid%20view",
+  "url": "https://api.airtable.com/v0/appoQmCfXoJ4KFKUp/restaurant%20submission?maxRecords=50&view=Grid%20view",
   "method": "GET",
   "headers": {
     "authorization": "Bearer keyuzt2LZF7exeI7c"
@@ -45,9 +45,13 @@ var settings = {
 };
 $.ajax(settings).done(function (response) {
     response = JSON.parse(response);
+    console.log(response);
   for(var i = 0; i < response.records.length; i++){
-    $("body").append(response.records[i].fields.Name+"<br>");
+    $("body").append(response.records[i].fields.name+"<br>");
       $("body").append(response.records[i].fields.address+"<br>");
+      $("body").append(response.records[i].fields.city+"<br>");
+      $("body").append(response.records[i].fields.emailaddress+"<br>");
+      $("body").append("<hr>");
   }
   
 });

@@ -28,7 +28,7 @@
       <li class="active"><a href="index.html">Home</a></li>
       <li><a href="volunteer.html">Volunteer</a></li>
       <li><a href="form.html">Resturants</a></li>
-      <li><a href="#become">Become A Volunteer</a></li>
+      <li><a href="shelters.html">Shelters</a></li>
     </ul>
   </div>
 </nav>
@@ -98,6 +98,13 @@ $('.btn.btn-success').click(function() {
 
   $.ajax(settings).done(function (response) {
     console.log(response);
+    
+     $('#name').val("");
+     $("#address").val("")
+  $('#add').val("");
+   $('#zipcode').val("");
+  $('#emailaddress').val("");
+   $('#city').val("");
   });
 });
 </script>
